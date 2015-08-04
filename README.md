@@ -20,7 +20,7 @@ Options:
   
 Examples:
 ```bash
-  et0x@mnstr:~$ python steg.py -f /bin/bash -r layout.png -w new.png
+  et0x@mnstr:~$ python steg.py -f /bin/nc -r layout.png -w new.png
   [*] Calculating maximum buffer for data in given image template...
   [*] Image size sufficient for input data, moving forward...
   [*]  Dataspace (needed/max): 27160 / 75888 bytes
