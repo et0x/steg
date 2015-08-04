@@ -6,7 +6,7 @@ Embed data / files in PNG images using LSB steganography
 This tool simply puts data/files in or pulls steganographically embedded data/files out of PNG images
 
 ## Usage:
-
+```bash
 Usage: steg.py [options]
 
 Options:
@@ -17,7 +17,7 @@ Options:
   -w <NewImageName>       The new image with embedded data in it
   -d                      Turn debugging on.  This will show the pixels you have written after the command completes.
   -g                      This will pull data out of an image already steg'd with this tool.
-  
+```
 Examples:
 ```bash
   et0x@mnstr:~$ python steg.py -f /bin/nc -r layout.png -w new.png
