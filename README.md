@@ -19,7 +19,7 @@ Options:
   -g                      This will pull data out of an image already steg'd with this tool.
   
 Examples:
-
+```bash
   et0x@mnstr:~$ python steg.py -f /bin/bash -r layout.png -w new.png
   [*] Calculating maximum buffer for data in given image template...
   [*] Image size sufficient for input data, moving forward...
@@ -48,6 +48,7 @@ Examples:
   ...
 
   ----------------------------------------------------------------------
+  ```
 ## Motivation:
 
 Steg all the things!
