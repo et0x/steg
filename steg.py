@@ -55,9 +55,9 @@ if opts.getdataimg:
                         img.getpixel((xPos,yPos))[i]
                         )[-1]     # get the last bit of each r,g,b decimal value (LSB)
                         
-                        if cmd.endswith(endstring):
-                          found = 1
-                          break   # we found the "endstring" of LSB's, must be steg'd...
+                if cmd.endswith(endstring):
+                  found = 1
+                  break   # we found the "endstring" of LSB's, must be steg'd...
                         
             currentbit += 1       # increment current pixel
           
@@ -76,7 +76,7 @@ if opts.getdataimg:
         print ascCmd
         exit(0)
         
-if (opt.infile and opts.intext):
+if (opts.infile and opts.intext):
   usage("You must choose either an input file or input text, you can't choose both")
   
 if not (opts.infile or opts.intext):
@@ -88,7 +88,7 @@ if not (opts.readimg and opts.writeimg):
 if (opts.infile):
   if not os.path.exists(opts.infile):
     usage("Input file doesn't exist!")
-  if not os.path.exists("opts.readimg):
+  if not os.path.exists(opts.readimg):
     usage("Input image doesn't exist!")
     
 if not (opts.readimg.lower().endswith(".png")):
@@ -98,7 +98,7 @@ img = Image.open(opts.readimg)
 img = img.convert("RGB")
 
 dataspace = (
-  ((img.size[0] * image.size[1])*3) - len(endstring)
+  ((img.size[0] * img.size[1])*3) - len(endstring)
   ) / 8                           # the number of bytes we can write to our image
   
 if opts.infile:
@@ -108,14 +108,14 @@ else:
   
 print "[*] Calculating maximum buffer size for data in given image template..."
 
-if len(command) > dataSpace:      # image isn't big enough to hold our data
+if len(command) > dataspace:      # image isn't big enough to hold our data
   print "[!] Error! Not enough space in the image for given data, try a larger image..."
-  print "[!]    Dataspace (needed/max): %d / %d bytes"%(len(command), dataSpace)
+  print "[!]    Dataspace (needed/max): %d / %d bytes"%(len(command), dataspace)
   exit(-1)
   
 else:
   print "[*] Image size sufficient for input data, moving forward..."
-  print "[*]    Dataspace (needed/max): %d / %d bytes"%(len(command), dataSpace)
+  print "[*]    Dataspace (needed/max): %d / %d bytes"%(len(command), dataspace)
   
 bCmd = cmd2bin(command) + endstring # binary representation of the command, with endstring appended
 
