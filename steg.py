@@ -73,7 +73,7 @@ if opts.getdataimg:
                         )
                       )
                       
-        print ascCmd
+        sys.stdout.write(ascCmd)
         exit(0)
         
 if (opts.infile and opts.intext):
